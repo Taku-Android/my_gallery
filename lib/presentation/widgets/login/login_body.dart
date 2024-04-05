@@ -5,6 +5,7 @@ import 'package:my_gallery/presentation/bloc/login_bloc/login_state.dart';
 
 import '../../../core/utils/assets.dart';
 import '../../../core/utils/dialog_helper.dart';
+import '../../../core/utils/helper.dart';
 import '../../../core/utils/styles.dart';
 import '../../screens/gallery_screen.dart';
 import 'login_container.dart';
@@ -28,6 +29,7 @@ class LoginBody extends StatelessWidget {
         }
         if (state is LoginSuccess) {
           DialogHelper.hideLoadingDialog();
+          Helper.saveToken(state.loginResponse.token!);
           Navigator.pushReplacement(
             context,
             MaterialPageRoute(

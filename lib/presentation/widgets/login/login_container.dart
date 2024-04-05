@@ -24,10 +24,11 @@ class LoginContainer extends StatelessWidget {
           borderRadius: BorderRadius.circular(32.0),
           child: BackdropFilter(
             filter: ImageFilter.blur(sigmaX: 10.0, sigmaY: 10.0),
-            // Adjust the sigma values for the blur intensity
-            child: Container(
-              color: Colors.white.withOpacity(.5), // Transparent color
-              child: const LoginForm(),
+            child: SingleChildScrollView(
+              child: Container(
+                color: Colors.white.withOpacity(.5), // Transparent color
+                child: const LoginForm(),
+              ),
             ),
           ),
         ),

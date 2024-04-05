@@ -5,10 +5,3 @@ import 'my_gallery.dart';
 void main() {
   runApp(const MyGallery());
 }
-
-
-
-
-
-
-

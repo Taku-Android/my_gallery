@@ -1,13 +1,12 @@
 import 'dart:io';
-
 import 'package:dartz/dartz.dart';
 import 'package:dio/dio.dart';
 import 'package:my_gallery/core/error/failure.dart';
+import 'package:my_gallery/data/model/GetImagesModel.dart';
 import 'package:my_gallery/data/model/LoginResponse.dart';
 import 'package:my_gallery/data/model/login_data.dart';
 import 'package:my_gallery/data/repo/repo.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-
 import '../../core/api/apiEndpoints.dart';
 
 class RepoImpl extends Repo{
@@ -47,11 +46,29 @@ class RepoImpl extends Repo{
       });
       var response = await dio.post(UPLOAD_IMAGE_API, data: formData);
       return Right(LoginResponse.fromJson(response.data));
-    } catch (e) {
-      if (e is DioError) {
-        return Left(ServerError.fromDioError(e));
+    }catch (e) {
+      if (e is DioException) {
+        return left(ServerError.fromDioError(e));
       }
-      return Left(ServerError(e.toString()));
+      return left(ServerError(e.toString()));
+    }
+  }
+
+  @override
+  Future<Either<Failure, GetImagesModel>> getImages() async {
+    try {
+      dio.options.headers["content-type"] = "application/json";
+      final prefs = await SharedPreferences.getInstance();
+      var token = prefs.getString('token');
+      dio.options.headers["Authorization"] = "Bearer $token";
+
+      var response = await dio.get(GET_IMAGES_API);
+      return Right(GetImagesModel.fromJson(response.data));
+    } catch (e) {
+      if (e is DioException) {
+        return left(ServerError.fromDioError(e));
+      }
+      return left(ServerError(e.toString()));
     }
   }
 

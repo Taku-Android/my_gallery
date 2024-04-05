@@ -23,11 +23,11 @@ class LoginBody extends StatelessWidget {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                const Text(
+                 Text(
                   'My',
                   style: Styles.title,
                 ),
-                const Text(
+                 Text(
                   'Gallery',
                   style: Styles.title,
                 ),

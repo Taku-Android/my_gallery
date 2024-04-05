@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:my_gallery/presentation/screens/gallery_screen.dart';
 
 import '../../../core/utils/styles.dart';
 import 'custom_button.dart';
@@ -22,9 +24,9 @@ class _LoginFormState extends State<LoginForm> {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
-          const Center(child: Text('LOG IN', style: Styles.titleMedium)),
-          const SizedBox(
-            height: 34,
+           Center(child: Text('LOG IN', style: Styles.titleMedium)),
+           SizedBox(
+            height: 34.h,
           ),
           CustomTextField(
               hintText: 'User Name',
@@ -32,8 +34,8 @@ class _LoginFormState extends State<LoginForm> {
               validator: (value) {
                 return '';
               }),
-          const SizedBox(
-            height: 34,
+           SizedBox(
+            height: 34.h,
           ),
           CustomTextField(
               hintText: 'Password',
@@ -41,10 +43,17 @@ class _LoginFormState extends State<LoginForm> {
               validator: (value) {
                 return '';
               }),
-          const SizedBox(
-            height: 34,
+           SizedBox(
+            height: 16.h,
           ),
-          CustomButton(onPressed: () {}),
+          CustomButton(onPressed: () {
+            Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: (BuildContext context) => const GalleryScreen(),
+              ),
+            );
+          }),
         ],
       ),
     );

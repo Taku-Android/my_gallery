@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-
 import '../../../core/utils/styles.dart';
 
 class CustomButton extends StatelessWidget {
@@ -19,9 +18,11 @@ class CustomButton extends StatelessWidget {
           borderRadius: BorderRadius.circular(12), // Border radius
         ),
       ),
-      child: const Padding(
-        padding: EdgeInsets.all(8.0),
-        child: Text('SUBMIT'),
+      child:  Padding(
+        padding: const EdgeInsets.symmetric(vertical: 16 , horizontal: 16),
+        child:  Text('SUBMIT' , style: Styles.subTitle.copyWith(
+          color: Colors.white
+        ),),
       ),
     );
   }

@@ -1,6 +1,7 @@
 import 'dart:ui';
 
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import 'login_form.dart';
 
@@ -13,8 +14,8 @@ class LoginContainer extends StatelessWidget {
   Widget build(BuildContext context) {
     return Center(
       child: Container(
-        width: size.width / 1.2,
-        height: size.height / 2,
+        width: 300.w,
+        height: 350.h,
         decoration: BoxDecoration(
           borderRadius:
               BorderRadius.circular(20.0), // Adjust the radius as needed

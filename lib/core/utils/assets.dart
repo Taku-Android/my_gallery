@@ -11,4 +11,7 @@ class AssetsPaths{
 
   static const pic1 = 'assets/images/pic1.png';
 
+  static const camera = 'assets/images/camera_btn.png';
+  static const galleryBtn = 'assets/images/gallery_button.png';
+
 }

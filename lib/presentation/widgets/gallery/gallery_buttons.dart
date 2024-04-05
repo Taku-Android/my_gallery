@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:my_gallery/core/utils/dialog_helper.dart';
 import 'package:my_gallery/presentation/screens/login.dart';
 
 import '../../../core/utils/assets.dart';
@@ -27,7 +28,9 @@ class GalleryButtons extends StatelessWidget {
               child: const CustomGalleryButton(
                   image: AssetsPaths.logout, title: 'log out')),
           GestureDetector(
-              onTap: () {},
+              onTap: () {
+                DialogHelper.uploadImageDialog(context , onButton1Pressed: (){} , onButton2Pressed: (){});
+              },
               child: const CustomGalleryButton(
                   image: AssetsPaths.upload, title: 'upload')),
         ],

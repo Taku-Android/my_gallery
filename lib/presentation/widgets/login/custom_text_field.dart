@@ -13,7 +13,7 @@ class CustomTextField extends StatelessWidget {
 
   final TextEditingController controller;
 
-  final String Function(String?) validator;
+  final String? Function(String?) validator;
 
   @override
   Widget build(BuildContext context) {
@@ -27,7 +27,9 @@ class CustomTextField extends StatelessWidget {
             focusedBorder: buildOutlineInputBorder(),
             contentPadding:  EdgeInsets.symmetric(horizontal: 14.w , vertical:14.h),
             hintText: hintText,
-            hintStyle: Styles.subTitle
+            hintStyle: Styles.subTitle.copyWith(
+              color: Colors.grey
+            )
         ));
   }
 

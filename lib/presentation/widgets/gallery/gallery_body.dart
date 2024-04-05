@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:my_gallery/presentation/bloc/images_bloc/images_cubit.dart';
 import 'package:my_gallery/presentation/bloc/upload_bloc/upload_cubit.dart';
 import 'package:my_gallery/presentation/bloc/upload_bloc/upload_state.dart';
 
@@ -34,6 +35,7 @@ class GalleryBody extends StatelessWidget {
         }
         if (state is UploadSuccess) {
           DialogHelper.hideLoadingDialog();
+          BlocProvider.of<ImagesCubit>(context).getImages();
           DialogHelper.showInfoDialog(context, state.loginResponse.message!, onOkPressed: () {
             Navigator.pop(context);
           });

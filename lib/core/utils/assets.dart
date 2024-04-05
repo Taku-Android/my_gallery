@@ -13,5 +13,6 @@ class AssetsPaths{
 
   static const camera = 'assets/images/camera_btn.png';
   static const galleryBtn = 'assets/images/gallery_button.png';
+  static const error = 'assets/images/error.png';
 
 }
